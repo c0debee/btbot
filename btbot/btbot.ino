@@ -108,15 +108,7 @@ void transmitTelemetry() {
   if(millis() > telemetry_tx_next_ms) {
     Serial.print("\033[2J\033[;H");
     Serial.print("Distance: ");
-    //Serial.println(measureDistance(), DEC);
-
-    Serial.print("Line: ");
-    if(digitalRead(IR_LEFT) == HIGH)
-      Serial.print("L ");
-    if(digitalRead(IR_MID) == HIGH)
-      Serial.print("M ");
-    if(digitalRead(IR_RIGHT) == HIGH)
-      Serial.print("R ");
+    Serial.println(measureDistance(), DEC);
 
     telemetry_tx_next_ms = millis() + TELEMETRY_TX_INTERVAL;
   }
